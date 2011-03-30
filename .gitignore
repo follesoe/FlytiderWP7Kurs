@@ -1,0 +1,16 @@
+obj
+bin
+Bin
+TestResults
+_ReSharper.*
+.DS_Store
+*.csproj.user
+*.resharper.user
+*.ReSharper.user
+*.resharper
+*.suo
+*.cache
+*~
+*.swp
+*.pidb
+*.userprefs

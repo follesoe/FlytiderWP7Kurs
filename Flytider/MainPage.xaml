@@ -7,17 +7,22 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    xmlns:local="clr-namespace:Flytider"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
     d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+    
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <controls:Pivot Title="FLYTIDER FRA AVINOR">
+        <Grid.Resources>
+            <local:DateTimeToStringConverter x:Key="DatoConverter" />
+        </Grid.Resources>
+        <controls:Pivot Title="FLYTIDER FRA AVINOR" x:Name="flyPivot">
             <controls:PivotItem Header="avgang">
                 <ListBox x:Name="Avganger" Margin="0,0,-32,0">
                     <ListBox.ItemTemplate>
@@ -28,9 +33,9 @@
                                     <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding Nummer}" FontSize="28" />
-                                <TextBlock Grid.Column="1" Text="{Binding Flyplass}" FontSize="28" />
-                                <TextBlock Grid.Column="2" Text="{Binding Tidspunkt}" FontSize="28" />
+                                <TextBlock Grid.Column="0" Text="{Binding Nummer}" FontSize="32" />
+                                <TextBlock Grid.Column="1" Text="{Binding Flyplass}" FontSize="32" />
+                                <TextBlock Grid.Column="2" Text="{Binding Tidspunkt, Converter={StaticResource DatoConverter}, ConverterParameter=HH:mm}" FontSize="32" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>                    
@@ -47,9 +52,9 @@
                                     <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding Nummer}" FontSize="28" />
-                                <TextBlock Grid.Column="1" Text="{Binding Flyplass}" FontSize="28" />
-                                <TextBlock Grid.Column="2" Text="{Binding Tidspunkt}" FontSize="28" />
+                                <TextBlock Grid.Column="0" Text="{Binding Nummer}" FontSize="32" />
+                                <TextBlock Grid.Column="1" Text="{Binding Flyplass}" FontSize="32" />
+                                <TextBlock Grid.Column="2" Text="{Binding Klokkeslett}" FontSize="32" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -77,15 +82,13 @@
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton
+                    Click="ApplicationBarIconButton_Click"
+                    IconUri="appbar.feature.email.rest.png" 
+                    Text="Send SMS"/>           
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

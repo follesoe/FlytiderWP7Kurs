@@ -8,5 +8,10 @@ namespace Flytider
         public DateTime Tidspunkt { get; set; }
         public string AnnkomstAvgang { get; set; }
         public string Flyplass { get; set; }
+
+        public string Klokkeslett
+        {
+            get { return Tidspunkt.ToString("HH:mm"); }
+        }
     }
 }

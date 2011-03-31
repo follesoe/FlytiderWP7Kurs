@@ -83,17 +83,17 @@
  
     
     <!--Sample code showing usage of ApplicationBar-->
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
-            <shell:ApplicationBarIconButton
-                    Click="ApplicationBarIconButton_Click"
-                    IconUri="appbar.feature.email.rest.png" 
-                    Text="Send SMS"/>
-            <shell:ApplicationBarIconButton
-                Click="ApplicationBarIconButton_Click_1"
-                IconUri="appbar.share.rest.png"
-                Text="Vis kart"/>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+<phone:PhoneApplicationPage.ApplicationBar>
+    <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
+        <shell:ApplicationBarIconButton
+                Click="ApplicationBarIconButton_Click"
+                IconUri="appbar.feature.email.rest.png" 
+                Text="Send SMS"/>
+        <shell:ApplicationBarIconButton
+            Click="ApplicationBarIconButton_Click_1"
+            IconUri="appbar.share.rest.png"
+            Text="Vis kart"/>
+    </shell:ApplicationBar>
+</phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

@@ -68,9 +68,9 @@ namespace Flytider
             }
         }
 
-        private void ApplicationBarIconButton_Click_1(object sender, System.EventArgs e)
-        {
-            NavigationService.Navigate(new System.Uri("/MapPage.xaml", System.UriKind.Relative));
-        }
+private void ApplicationBarIconButton_Click_1(object sender, System.EventArgs e)
+{
+    NavigationService.Navigate(new System.Uri("/MapPage.xaml", System.UriKind.Relative));
+}
     }
 }

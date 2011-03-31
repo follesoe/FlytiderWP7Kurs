@@ -27,7 +27,6 @@ namespace Flytider
             base.OnNavigatedTo(e);
 
             Kart.SetView(new GeoCoordinate(60.994423, 9.140625), 6);
-
             LastFlyplasser();
         }
 
